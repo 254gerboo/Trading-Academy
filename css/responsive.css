@@ -71,3 +71,118 @@
     }
 
 }
+/* ==========================================
+   TABLETS
+========================================== */
+
+@media (max-width:992px){
+
+    .hero{
+        flex-direction:column;
+        text-align:center;
+        gap:60px;
+    }
+
+    .hero-content{
+        width:100%;
+    }
+
+    .hero-image{
+        width:100%;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+
+}
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width:768px){
+
+    .navbar{
+
+        flex-direction:column;
+        padding:20px;
+
+    }
+
+    .nav-links{
+
+        flex-direction:column;
+        width:100%;
+        align-items:center;
+        gap:18px;
+
+    }
+
+    .buttons{
+
+        width:100%;
+        flex-direction:column;
+
+    }
+
+    .login-btn,
+    .register-btn{
+
+        width:100%;
+        text-align:center;
+
+    }
+
+    .hero{
+
+        padding:60px 20px;
+
+    }
+
+    .hero h1{
+
+        font-size:2.2rem;
+
+    }
+
+    .hero p{
+
+        font-size:17px;
+
+    }
+
+}
+/* ==========================================
+   SMALL PHONES
+========================================== */
+
+@media (max-width:480px){
+
+    .hero h1{
+
+        font-size:1.8rem;
+
+    }
+
+    .section-title h2{
+
+        font-size:1.8rem;
+
+    }
+
+    .course-grid,
+    .feature-grid,
+    .testimonial-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .card{
+
+        width:100%;
+
+    }
+
+}
