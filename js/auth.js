@@ -6,23 +6,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     // ==========================================
-    // GET ELEMENTS
-    // ==========================================
-
-    const registerForm = document.getElementById("registerForm");
-
-    const password = document.getElementById("password");
-    const confirmPassword = document.getElementById("confirmPassword");
-
-    const togglePassword = document.getElementById("togglePassword");
-    const toggleConfirmPassword =
-        document.getElementById("toggleConfirmPassword");
-
-    const registerError = document.getElementById("registerError");
-
-
-    // ==========================================
-    // SHOW / HIDE PASSWORD
+    // PASSWORD TOGGLE FUNCTION
     // ==========================================
 
     function setupPasswordToggle(button, input) {
@@ -50,14 +34,54 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+    // ==========================================
+    // REGISTER PASSWORD TOGGLES
+    // ==========================================
+
+    const password = document.getElementById("password");
+
+    const confirmPassword =
+        document.getElementById("confirmPassword");
+
+    const togglePassword =
+        document.getElementById("togglePassword");
+
+    const toggleConfirmPassword =
+        document.getElementById("toggleConfirmPassword");
+
+
     setupPasswordToggle(togglePassword, password);
 
-    setupPasswordToggle(toggleConfirmPassword, confirmPassword);
+    setupPasswordToggle(
+        toggleConfirmPassword,
+        confirmPassword
+    );
+
+
+    // ==========================================
+    // LOGIN PASSWORD TOGGLE
+    // ==========================================
+
+    const loginPassword =
+        document.getElementById("loginPassword");
+
+    const toggleLoginPassword =
+        document.getElementById("toggleLoginPassword");
+
+
+    setupPasswordToggle(
+        toggleLoginPassword,
+        loginPassword
+    );
 
 
     // ==========================================
     // REGISTER FORM
     // ==========================================
+
+    const registerForm =
+        document.getElementById("registerForm");
+
 
     if (registerForm) {
 
@@ -65,18 +89,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
             event.preventDefault();
 
+            const registerError =
+                document.getElementById("registerError");
+
+            registerError.style.color = "#f87171";
+
             registerError.textContent = "";
 
 
-            // Get values
-
             const fullName =
-                document.getElementById("fullName").value.trim();
+                document.getElementById("fullName")
+                .value
+                .trim();
 
             const email =
-                document.getElementById("email").value.trim();
+                document.getElementById("email")
+                .value
+                .trim();
 
-            const passwordValue = password.value;
+            const passwordValue =
+                password.value;
 
             const confirmPasswordValue =
                 confirmPassword.value;
@@ -85,13 +117,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.getElementById("terms").checked;
 
 
-            // ==========================================
-            // VALIDATION
-            // ==========================================
+            // Validation
 
             if (fullName.length < 2) {
 
-                showError("Please enter your full name.");
+                showRegisterError(
+                    "Please enter your full name."
+                );
 
                 return;
 
@@ -100,7 +132,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (!email) {
 
-                showError("Please enter your email address.");
+                showRegisterError(
+                    "Please enter your email address."
+                );
 
                 return;
 
@@ -109,7 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (passwordValue.length < 8) {
 
-                showError(
+                showRegisterError(
                     "Password must contain at least 8 characters."
                 );
 
@@ -120,7 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (passwordValue !== confirmPasswordValue) {
 
-                showError(
+                showRegisterError(
                     "Passwords do not match."
                 );
 
@@ -131,7 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (!terms) {
 
-                showError(
+                showRegisterError(
                     "Please accept the Terms & Conditions."
                 );
 
@@ -140,9 +174,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
 
-            // ==========================================
-            // SUCCESS FOR NOW
-            // ==========================================
+            // Temporary success message
 
             registerError.style.color = "#4ade80";
 
@@ -160,14 +192,116 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // ==========================================
-    // ERROR FUNCTION
+    // LOGIN FORM
     // ==========================================
 
-    function showError(message) {
+    const loginForm =
+        document.getElementById("loginForm");
 
-        registerError.style.color = "#f87171";
 
-        registerError.textContent = message;
+    if (loginForm) {
+
+        loginForm.addEventListener("submit", (event) => {
+
+            event.preventDefault();
+
+            const loginMessage =
+                document.getElementById("loginMessage");
+
+
+            loginMessage.textContent = "";
+
+            loginMessage.style.color = "#f87171";
+
+
+            const email =
+                document.getElementById("loginEmail")
+                .value
+                .trim();
+
+            const passwordValue =
+                loginPassword.value;
+
+
+            // Validation
+
+            if (!email) {
+
+                showLoginError(
+                    "Please enter your email address."
+                );
+
+                return;
+
+            }
+
+
+            if (!passwordValue) {
+
+                showLoginError(
+                    "Please enter your password."
+                );
+
+                return;
+
+            }
+
+
+            if (passwordValue.length < 8) {
+
+                showLoginError(
+                    "Password must contain at least 8 characters."
+                );
+
+                return;
+
+            }
+
+
+            // Temporary success message
+
+            loginMessage.style.color = "#4ade80";
+
+            loginMessage.textContent =
+                "Login details are valid! Firebase will be connected soon.";
+
+            console.log("Login attempt:", {
+                email
+            });
+
+        });
+
+    }
+
+
+    // ==========================================
+    // ERROR FUNCTIONS
+    // ==========================================
+
+    function showRegisterError(message) {
+
+        const error =
+            document.getElementById("registerError");
+
+        if (!error) return;
+
+        error.style.color = "#f87171";
+
+        error.textContent = message;
+
+    }
+
+
+    function showLoginError(message) {
+
+        const messageBox =
+            document.getElementById("loginMessage");
+
+        if (!messageBox) return;
+
+        messageBox.style.color = "#f87171";
+
+        messageBox.textContent = message;
 
     }
 
