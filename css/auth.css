@@ -571,3 +571,77 @@ body {
     }
 
 }
+/* ==========================================
+   LOGIN OPTIONS
+========================================== */
+
+.login-options {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin: 5px 0 20px;
+
+    font-size: 13px;
+
+}
+
+
+.remember-me {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #94a3b8;
+
+    cursor: pointer;
+
+}
+
+
+.remember-me input {
+
+    accent-color: #3b82f6;
+
+}
+
+
+.forgot-password {
+
+    color: #3b82f6;
+
+    text-decoration: none;
+
+}
+
+
+.forgot-password:hover {
+
+    text-decoration: underline;
+
+}
+
+
+/* ==========================================
+   LOGIN RESPONSIVE
+========================================== */
+
+@media (max-width: 500px) {
+
+    .login-options {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 12px;
+
+    }
+
+}
