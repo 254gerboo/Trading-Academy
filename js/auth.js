@@ -1,12 +1,21 @@
 // ==========================================
 // GERBOO TRADING ACADEMY
-// Authentication JavaScript
+// Authentication
 // ==========================================
+
+import {
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    updateProfile
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
+
+import { auth } from "./firebase.js";
+
 
 document.addEventListener("DOMContentLoaded", () => {
 
     // ==========================================
-    // PASSWORD TOGGLE FUNCTION
+    // PASSWORD TOGGLE
     // ==========================================
 
     function setupPasswordToggle(button, input) {
@@ -38,23 +47,14 @@ document.addEventListener("DOMContentLoaded", () => {
     // REGISTER PASSWORD TOGGLES
     // ==========================================
 
-    const password = document.getElementById("password");
-
-    const confirmPassword =
-        document.getElementById("confirmPassword");
-
-    const togglePassword =
-        document.getElementById("togglePassword");
-
-    const toggleConfirmPassword =
-        document.getElementById("toggleConfirmPassword");
-
-
-    setupPasswordToggle(togglePassword, password);
+    setupPasswordToggle(
+        document.getElementById("togglePassword"),
+        document.getElementById("password")
+    );
 
     setupPasswordToggle(
-        toggleConfirmPassword,
-        confirmPassword
+        document.getElementById("toggleConfirmPassword"),
+        document.getElementById("confirmPassword")
     );
 
 
@@ -62,21 +62,14 @@ document.addEventListener("DOMContentLoaded", () => {
     // LOGIN PASSWORD TOGGLE
     // ==========================================
 
-    const loginPassword =
-        document.getElementById("loginPassword");
-
-    const toggleLoginPassword =
-        document.getElementById("toggleLoginPassword");
-
-
     setupPasswordToggle(
-        toggleLoginPassword,
-        loginPassword
+        document.getElementById("toggleLoginPassword"),
+        document.getElementById("loginPassword")
     );
 
 
     // ==========================================
-    // REGISTER FORM
+    // REGISTER
     // ==========================================
 
     const registerForm =
@@ -85,114 +78,165 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (registerForm) {
 
-        registerForm.addEventListener("submit", (event) => {
+        registerForm.addEventListener(
+            "submit",
+            async (event) => {
 
-            event.preventDefault();
+                event.preventDefault();
 
-            const registerError =
-                document.getElementById("registerError");
+                const message =
+                    document.getElementById("registerError");
 
-            registerError.style.color = "#f87171";
+                message.textContent = "";
 
-            registerError.textContent = "";
-
-
-            const fullName =
-                document.getElementById("fullName")
-                .value
-                .trim();
-
-            const email =
-                document.getElementById("email")
-                .value
-                .trim();
-
-            const passwordValue =
-                password.value;
-
-            const confirmPasswordValue =
-                confirmPassword.value;
-
-            const terms =
-                document.getElementById("terms").checked;
+                message.style.color = "#f87171";
 
 
-            // Validation
+                const fullName =
+                    document.getElementById("fullName")
+                    .value
+                    .trim();
 
-            if (fullName.length < 2) {
+                const email =
+                    document.getElementById("email")
+                    .value
+                    .trim();
 
-                showRegisterError(
-                    "Please enter your full name."
-                );
+                const password =
+                    document.getElementById("password")
+                    .value;
 
-                return;
+                const confirmPassword =
+                    document.getElementById("confirmPassword")
+                    .value;
+
+                const terms =
+                    document.getElementById("terms")
+                    .checked;
+
+
+                // Validation
+
+                if (fullName.length < 2) {
+
+                    showMessage(
+                        message,
+                        "Please enter your full name."
+                    );
+
+                    return;
+                }
+
+
+                if (!email) {
+
+                    showMessage(
+                        message,
+                        "Please enter your email address."
+                    );
+
+                    return;
+                }
+
+
+                if (password.length < 8) {
+
+                    showMessage(
+                        message,
+                        "Password must contain at least 8 characters."
+                    );
+
+                    return;
+                }
+
+
+                if (password !== confirmPassword) {
+
+                    showMessage(
+                        message,
+                        "Passwords do not match."
+                    );
+
+                    return;
+                }
+
+
+                if (!terms) {
+
+                    showMessage(
+                        message,
+                        "Please accept the Terms & Conditions."
+                    );
+
+                    return;
+                }
+
+
+                // ==========================================
+                // CREATE FIREBASE ACCOUNT
+                // ==========================================
+
+                try {
+
+                    const userCredential =
+                        await createUserWithEmailAndPassword(
+                            auth,
+                            email,
+                            password
+                        );
+
+
+                    const user =
+                        userCredential.user;
+
+
+                    // Save user's display name
+
+                    await updateProfile(user, {
+                        displayName: fullName
+                    });
+
+
+                    message.style.color = "#4ade80";
+
+                    message.textContent =
+                        "Account created successfully!";
+
+
+                    console.log(
+                        "Firebase user created:",
+                        user.uid
+                    );
+
+
+                    // Redirect later when dashboard exists
+
+                    // window.location.href = "dashboard.html";
+
+
+                } catch (error) {
+
+                    console.error(
+                        "Registration error:",
+                        error
+                    );
+
+
+                    handleFirebaseError(
+                        message,
+                        error
+                    );
+
+                }
 
             }
-
-
-            if (!email) {
-
-                showRegisterError(
-                    "Please enter your email address."
-                );
-
-                return;
-
-            }
-
-
-            if (passwordValue.length < 8) {
-
-                showRegisterError(
-                    "Password must contain at least 8 characters."
-                );
-
-                return;
-
-            }
-
-
-            if (passwordValue !== confirmPasswordValue) {
-
-                showRegisterError(
-                    "Passwords do not match."
-                );
-
-                return;
-
-            }
-
-
-            if (!terms) {
-
-                showRegisterError(
-                    "Please accept the Terms & Conditions."
-                );
-
-                return;
-
-            }
-
-
-            // Temporary success message
-
-            registerError.style.color = "#4ade80";
-
-            registerError.textContent =
-                "Registration details are valid! Firebase will be connected soon.";
-
-            console.log("Registration data:", {
-                fullName,
-                email
-            });
-
-        });
+        );
 
     }
 
 
     // ==========================================
-    // LOGIN FORM
+    // LOGIN
     // ==========================================
 
     const loginForm =
@@ -201,107 +245,184 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (loginForm) {
 
-        loginForm.addEventListener("submit", (event) => {
+        loginForm.addEventListener(
+            "submit",
+            async (event) => {
 
-            event.preventDefault();
-
-            const loginMessage =
-                document.getElementById("loginMessage");
-
-
-            loginMessage.textContent = "";
-
-            loginMessage.style.color = "#f87171";
+                event.preventDefault();
 
 
-            const email =
-                document.getElementById("loginEmail")
-                .value
-                .trim();
+                const message =
+                    document.getElementById("loginMessage");
 
-            const passwordValue =
-                loginPassword.value;
+                message.textContent = "";
+
+                message.style.color = "#f87171";
 
 
-            // Validation
+                const email =
+                    document.getElementById("loginEmail")
+                    .value
+                    .trim();
 
-            if (!email) {
+                const password =
+                    document.getElementById("loginPassword")
+                    .value;
 
-                showLoginError(
-                    "Please enter your email address."
-                );
 
-                return;
+                if (!email) {
+
+                    showMessage(
+                        message,
+                        "Please enter your email address."
+                    );
+
+                    return;
+                }
+
+
+                if (!password) {
+
+                    showMessage(
+                        message,
+                        "Please enter your password."
+                    );
+
+                    return;
+                }
+
+
+                // ==========================================
+                // FIREBASE LOGIN
+                // ==========================================
+
+                try {
+
+                    const userCredential =
+                        await signInWithEmailAndPassword(
+                            auth,
+                            email,
+                            password
+                        );
+
+
+                    const user =
+                        userCredential.user;
+
+
+                    message.style.color = "#4ade80";
+
+                    message.textContent =
+                        "Login successful!";
+
+
+                    console.log(
+                        "Logged in user:",
+                        user.uid
+                    );
+
+
+                    // Dashboard will be created later
+
+                    // window.location.href = "dashboard.html";
+
+
+                } catch (error) {
+
+                    console.error(
+                        "Login error:",
+                        error
+                    );
+
+
+                    handleFirebaseError(
+                        message,
+                        error
+                    );
+
+                }
 
             }
-
-
-            if (!passwordValue) {
-
-                showLoginError(
-                    "Please enter your password."
-                );
-
-                return;
-
-            }
-
-
-            if (passwordValue.length < 8) {
-
-                showLoginError(
-                    "Password must contain at least 8 characters."
-                );
-
-                return;
-
-            }
-
-
-            // Temporary success message
-
-            loginMessage.style.color = "#4ade80";
-
-            loginMessage.textContent =
-                "Login details are valid! Firebase will be connected soon.";
-
-            console.log("Login attempt:", {
-                email
-            });
-
-        });
+        );
 
     }
 
 
     // ==========================================
-    // ERROR FUNCTIONS
+    // MESSAGE FUNCTION
     // ==========================================
 
-    function showRegisterError(message) {
+    function showMessage(element, message) {
 
-        const error =
-            document.getElementById("registerError");
-
-        if (!error) return;
-
-        error.style.color = "#f87171";
-
-        error.textContent = message;
+        element.textContent = message;
 
     }
 
 
-    function showLoginError(message) {
+    // ==========================================
+    // FIREBASE ERROR HANDLING
+    // ==========================================
 
-        const messageBox =
-            document.getElementById("loginMessage");
+    function handleFirebaseError(element, error) {
 
-        if (!messageBox) return;
+        switch (error.code) {
 
-        messageBox.style.color = "#f87171";
+            case "auth/email-already-in-use":
 
-        messageBox.textContent = message;
+                element.textContent =
+                    "An account with this email already exists.";
+
+                break;
+
+
+            case "auth/invalid-email":
+
+                element.textContent =
+                    "Please enter a valid email address.";
+
+                break;
+
+
+            case "auth/weak-password":
+
+                element.textContent =
+                    "The password is too weak.";
+
+                break;
+
+
+            case "auth/invalid-credential":
+
+                element.textContent =
+                    "Incorrect email or password.";
+
+                break;
+
+
+            case "auth/user-not-found":
+
+                element.textContent =
+                    "No account was found with this email.";
+
+                break;
+
+
+            case "auth/wrong-password":
+
+                element.textContent =
+                    "Incorrect password.";
+
+                break;
+
+
+            default:
+
+                element.textContent =
+                    "Something went wrong. Please try again.";
+
+                console.error(error);
+
+        }
 
     }
 
