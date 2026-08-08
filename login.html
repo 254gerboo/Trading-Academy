@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | Gerboo Trading Academy</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+    <!-- Authentication CSS -->
+    <link rel="stylesheet" href="css/auth.css">
+
+</head>
+
+
+<body>
+
+    <!-- ==========================================
+         LOGIN PAGE
+    =========================================== -->
+
+    <main class="auth-page">
+
+        <!-- LEFT SIDE -->
+
+        <div class="auth-info">
+
+            <div class="auth-brand">
+
+                <h1>Gerboo Trading Academy</h1>
+
+                <p>Learn. Practice. Trade.</p>
+
+            </div>
+
+
+            <div class="auth-message">
+
+                <h2>Welcome Back, Trader.</h2>
+
+                <p>
+                    Continue your trading education, track your progress,
+                    complete your courses, and build your knowledge.
+                </p>
+
+            </div>
+
+
+            <div class="auth-features">
+
+                <div class="auth-feature">
+
+                    <i class="fas fa-chart-line"></i>
+
+                    <span>
+                        Continue your learning journey
+                    </span>
+
+                </div>
+
+
+                <div class="auth-feature">
+
+                    <i class="fas fa-tasks"></i>
+
+                    <span>
+                        Track your course progress
+                    </span>
+
+                </div>
+
+
+                <div class="auth-feature">
+
+                    <i class="fas fa-award"></i>
+
+                    <span>
+                        Earn certificates as you learn
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT SIDE -->
+
+        <div class="auth-container">
+
+            <div class="auth-card">
+
+                <div class="auth-header">
+
+                    <h2>Welcome Back</h2>
+
+                    <p>
+                        Login to continue learning.
+                    </p>
+
+                </div>
+
+
+                <!-- LOGIN FORM -->
+
+                <form id="loginForm">
+
+                    <!-- EMAIL -->
+
+                    <div class="form-group">
+
+                        <label for="loginEmail">
+                            Email Address
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="fas fa-envelope"></i>
+
+                            <input
+                                type="email"
+                                id="loginEmail"
+                                name="email"
+                                placeholder="Enter your email"
+                                autocomplete="email"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PASSWORD -->
+
+                    <div class="form-group">
+
+                        <label for="loginPassword">
+                            Password
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="fas fa-lock"></i>
+
+                            <input
+                                type="password"
+                                id="loginPassword"
+                                name="password"
+                                placeholder="Enter your password"
+                                autocomplete="current-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                id="toggleLoginPassword"
+                                aria-label="Show password"
+                            >
+                                <i class="fas fa-eye"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- REMEMBER / FORGOT -->
+
+                    <div class="login-options">
+
+                        <label class="remember-me">
+
+                            <input
+                                type="checkbox"
+                                id="rememberMe"
+                            >
+
+                            <span>Remember me</span>
+
+                        </label>
+
+
+                        <a href="#" class="forgot-password">
+                            Forgot Password?
+                        </a>
+
+                    </div>
+
+
+                    <!-- ERROR / SUCCESS -->
+
+                    <div
+                        id="loginMessage"
+                        class="form-message"
+                        role="alert"
+                    ></div>
+
+
+                    <!-- LOGIN BUTTON -->
+
+                    <button
+                        type="submit"
+                        class="auth-btn"
+                    >
+
+                        <span>Login</span>
+
+                        <i class="fas fa-arrow-right"></i>
+
+                    </button>
+
+                </form>
+
+
+                <!-- REGISTER LINK -->
+
+                <div class="auth-footer">
+
+                    <p>
+
+                        Don't have an account?
+
+                        <a href="register.html">
+                            Create Account
+                        </a>
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- Authentication JavaScript -->
+
+    <script src="js/auth.js"></script>
+
+</body>
+
+</html>
