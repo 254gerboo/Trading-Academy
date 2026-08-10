@@ -1,0 +1,597 @@
+/* ==========================================
+   GERBOO TRADING ACADEMY
+   DASHBOARD
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0b1120;
+    color: #ffffff;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* ==========================================
+   SIDEBAR
+========================================== */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    width: 250px;
+    height: 100vh;
+
+    padding: 30px 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #111827;
+    border-right: 1px solid #1f2937;
+}
+
+.sidebar-logo {
+    padding: 0 10px 35px;
+}
+
+.sidebar-logo h2 {
+    color: #3b82f6;
+    font-size: 23px;
+}
+
+.sidebar-logo span {
+    color: #64748b;
+    font-size: 12px;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar-nav a,
+.sidebar-bottom a,
+.sidebar-bottom button {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 13px 14px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: transparent;
+
+    color: #94a3b8;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.sidebar-nav a:hover,
+.sidebar-bottom a:hover,
+.sidebar-bottom button:hover,
+.sidebar-nav a.active {
+    background: #1e293b;
+    color: #ffffff;
+}
+
+.sidebar-nav a.active {
+    color: #3b82f6;
+}
+
+.sidebar-nav i,
+.sidebar-bottom i {
+    width: 20px;
+    text-align: center;
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #1f2937;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+
+/* ==========================================
+   DASHBOARD
+========================================== */
+
+.dashboard {
+    margin-left: 250px;
+
+    min-height: 100vh;
+
+    padding: 35px 45px;
+
+    background: #0b1120;
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.dashboard-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 35px;
+}
+
+.welcome-small {
+    color: #64748b;
+    font-size: 13px;
+
+    margin-bottom: 5px;
+}
+
+.dashboard-header h1 {
+    font-size: 27px;
+}
+
+.dashboard-header h1 span {
+    color: #3b82f6;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-avatar {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #3b82f6;
+
+    font-weight: 700;
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-details strong {
+    font-size: 14px;
+}
+
+.user-details span {
+    color: #64748b;
+    font-size: 11px;
+}
+
+
+/* ==========================================
+   OVERVIEW
+========================================== */
+
+.overview-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 35px;
+}
+
+.overview-card {
+    padding: 22px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    background: #111827;
+
+    border: 1px solid #1f2937;
+
+    border-radius: 14px;
+}
+
+.overview-icon {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #1e293b;
+
+    color: #3b82f6;
+}
+
+.overview-card span {
+    color: #64748b;
+    font-size: 12px;
+}
+
+.overview-card h2 {
+    margin-top: 2px;
+    font-size: 22px;
+}
+
+
+/* ==========================================
+   SECTIONS
+========================================== */
+
+.dashboard-section {
+    margin-bottom: 35px;
+}
+
+.section-heading {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 18px;
+}
+
+.section-heading h2 {
+    font-size: 20px;
+}
+
+.section-heading p {
+    margin-top: 4px;
+
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+.section-heading > a {
+    color: #3b82f6;
+    font-size: 13px;
+}
+
+
+/* ==========================================
+   COURSE
+========================================== */
+
+.course-card {
+    padding: 25px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 22px;
+
+    background: #111827;
+
+    border: 1px solid #1f2937;
+
+    border-radius: 15px;
+}
+
+.course-icon {
+    width: 65px;
+    height: 65px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background: #1e293b;
+
+    color: #3b82f6;
+
+    font-size: 23px;
+}
+
+.course-info {
+    flex: 1;
+}
+
+.course-level {
+    color: #3b82f6;
+
+    font-size: 10px;
+
+    font-weight: 700;
+}
+
+.course-info h3 {
+    margin: 4px 0;
+
+    font-size: 18px;
+}
+
+.course-info > p {
+    max-width: 650px;
+
+    color: #64748b;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+.progress-area {
+    max-width: 500px;
+
+    margin-top: 15px;
+}
+
+.progress-label {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 6px;
+
+    color: #64748b;
+
+    font-size: 11px;
+}
+
+.progress-label strong {
+    color: #ffffff;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    background: #1e293b;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+
+    background: #3b82f6;
+
+    border-radius: inherit;
+}
+
+.continue-btn {
+    padding: 11px 18px;
+
+    flex-shrink: 0;
+
+    border-radius: 8px;
+
+    background: #3b82f6;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    transition: .25s;
+}
+
+.continue-btn:hover {
+    background: #2563eb;
+}
+
+
+/* ==========================================
+   QUICK ACTIONS
+========================================== */
+
+.action-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+.action-card {
+    padding: 20px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    background: #111827;
+
+    border: 1px solid #1f2937;
+
+    border-radius: 14px;
+
+    transition: .25s;
+}
+
+.action-card:hover {
+    transform: translateY(-3px);
+
+    border-color: #3b82f6;
+}
+
+.action-card > i {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #1e293b;
+
+    color: #3b82f6;
+}
+
+.action-card h3 {
+    font-size: 14px;
+}
+
+.action-card p {
+    margin-top: 4px;
+
+    color: #64748b;
+
+    font-size: 11px;
+}
+
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.dashboard-footer {
+    padding: 25px 0;
+
+    border-top: 1px solid #1f2937;
+
+    color: #475569;
+
+    font-size: 11px;
+
+    text-align: center;
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 1100px) {
+
+    .overview-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .action-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 800px) {
+
+    .sidebar {
+        position: static;
+
+        width: 100%;
+        height: auto;
+
+        padding: 18px;
+
+    }
+
+    .sidebar-logo {
+        padding-bottom: 18px;
+    }
+
+    .sidebar-nav {
+        flex-direction: row;
+
+        overflow-x: auto;
+    }
+
+    .sidebar-nav a {
+        white-space: nowrap;
+    }
+
+    .sidebar-bottom {
+        margin-top: 10px;
+
+        border-top: none;
+
+        padding-top: 0;
+    }
+
+    .sidebar-bottom a {
+        display: none;
+    }
+
+    .dashboard {
+        margin-left: 0;
+
+        padding: 25px 20px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .dashboard-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 20px;
+    }
+
+    .overview-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .course-card {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .continue-btn {
+        width: 100%;
+
+        text-align: center;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+}

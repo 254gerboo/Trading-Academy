@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | Gerboo Trading Academy</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+    <!-- Dashboard CSS -->
+    <link rel="stylesheet" href="css/dashboard.css">
+
+</head>
+
+
+<body>
+
+    <!-- ==========================================
+         SIDEBAR
+    =========================================== -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+
+            <h2>Gerboo</h2>
+
+            <span>Trading Academy</span>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="#" class="active">
+                <i class="fas fa-home"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="#">
+                <i class="fas fa-book-open"></i>
+                <span>My Courses</span>
+            </a>
+
+            <a href="#">
+                <i class="fas fa-chart-line"></i>
+                <span>Progress</span>
+            </a>
+
+            <a href="#">
+                <i class="fas fa-certificate"></i>
+                <span>Certificates</span>
+            </a>
+
+            <a href="#">
+                <i class="fas fa-user"></i>
+                <span>Profile</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a href="#">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </a>
+
+            <button id="logoutBtn">
+                <i class="fas fa-right-from-bracket"></i>
+                <span>Logout</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ==========================================
+         MAIN CONTENT
+    =========================================== -->
+
+    <main class="dashboard">
+
+        <!-- TOP BAR -->
+
+        <header class="dashboard-header">
+
+            <div>
+
+                <p class="welcome-small">
+                    Student Dashboard
+                </p>
+
+                <h1>
+                    Welcome back, <span id="userName">Trader</span> 👋
+                </h1>
+
+            </div>
+
+
+            <div class="user-profile">
+
+                <div class="user-avatar" id="userAvatar">
+                    G
+                </div>
+
+                <div class="user-details">
+
+                    <strong id="profileName">
+                        Trader
+                    </strong>
+
+                    <span id="profileEmail">
+                        Loading...
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ==========================================
+             OVERVIEW CARDS
+        =========================================== -->
+
+        <section class="overview-grid">
+
+            <div class="overview-card">
+
+                <div class="overview-icon">
+                    <i class="fas fa-book-open"></i>
+                </div>
+
+                <div>
+
+                    <span>Courses</span>
+
+                    <h2>0</h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="overview-card">
+
+                <div class="overview-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+
+                <div>
+
+                    <span>Progress</span>
+
+                    <h2>0%</h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="overview-card">
+
+                <div class="overview-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+
+                <div>
+
+                    <span>Completed</span>
+
+                    <h2>0</h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="overview-card">
+
+                <div class="overview-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+
+                <div>
+
+                    <span>Certificates</span>
+
+                    <h2>0</h2>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================================
+             CONTINUE LEARNING
+        =========================================== -->
+
+        <section class="dashboard-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <h2>Continue Learning</h2>
+
+                    <p>
+                        Pick up where you left off.
+                    </p>
+
+                </div>
+
+                <a href="#">
+                    View Courses →
+                </a>
+
+            </div>
+
+
+            <div class="course-card">
+
+                <div class="course-icon">
+
+                    <i class="fas fa-chart-line"></i>
+
+                </div>
+
+
+                <div class="course-info">
+
+                    <span class="course-level">
+                        BEGINNER
+                    </span>
+
+                    <h3>
+                        Forex Basics
+                    </h3>
+
+                    <p>
+                        Learn currencies, pips, lots, leverage,
+                        market sessions and the fundamentals of Forex.
+                    </p>
+
+
+                    <div class="progress-area">
+
+                        <div class="progress-label">
+
+                            <span>Course Progress</span>
+
+                            <strong>0%</strong>
+
+                        </div>
+
+                        <div class="progress-bar">
+
+                            <div class="progress-fill"></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <a href="#" class="continue-btn">
+                    Start Course
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================================
+             QUICK ACTIONS
+        =========================================== -->
+
+        <section class="dashboard-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <h2>Quick Actions</h2>
+
+                    <p>
+                        Access your learning tools.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="action-grid">
+
+                <a href="#" class="action-card">
+
+                    <i class="fas fa-graduation-cap"></i>
+
+                    <div>
+
+                        <h3>Explore Courses</h3>
+
+                        <p>
+                            Browse available courses.
+                        </p>
+
+                    </div>
+
+                </a>
+
+
+                <a href="#" class="action-card">
+
+                    <i class="fas fa-tasks"></i>
+
+                    <div>
+
+                        <h3>Take a Quiz</h3>
+
+                        <p>
+                            Test your trading knowledge.
+                        </p>
+
+                    </div>
+
+                </a>
+
+
+                <a href="#" class="action-card">
+
+                    <i class="fas fa-award"></i>
+
+                    <div>
+
+                        <h3>Certificates</h3>
+
+                        <p>
+                            View your achievements.
+                        </p>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================================
+             FOOTER
+        =========================================== -->
+
+        <footer class="dashboard-footer">
+
+            © 2026 Gerboo Trading Academy.
+
+        </footer>
+
+    </main>
+
+
+    <!-- Dashboard JavaScript -->
+    <script type="module" src="js/dashboard.js"></script>
+
+</body>
+
+</html>
