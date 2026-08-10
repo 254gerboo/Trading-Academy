@@ -322,9 +322,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     );
 
 
-                    // Dashboard will be created later
+                    // go to dashboard
 
-                    // window.location.href = "dashboard.html";
+                    window.location.href = "dashboard.html";
 
 
                 } catch (error) {
