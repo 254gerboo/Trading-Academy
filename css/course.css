@@ -1,0 +1,592 @@
+/* ==========================================
+   GERBOO TRADING ACADEMY
+   COURSE OVERVIEW
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0b1120;
+    color: #ffffff;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.course-header {
+    min-height: 72px;
+
+    padding: 0 6%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #111827;
+
+    border-bottom: 1px solid #1f2937;
+}
+
+.back-link,
+.dashboard-link {
+    color: #94a3b8;
+
+    font-size: 12px;
+
+    transition: .25s;
+}
+
+.back-link:hover,
+.dashboard-link:hover {
+    color: #3b82f6;
+}
+
+.back-link i,
+.dashboard-link i {
+    margin-right: 6px;
+}
+
+.course-logo {
+    display: flex;
+    flex-direction: column;
+
+    text-align: center;
+}
+
+.course-logo strong {
+    color: #3b82f6;
+    font-size: 20px;
+}
+
+.course-logo span {
+    color: #64748b;
+    font-size: 9px;
+}
+
+
+/* ==========================================
+   MAIN
+========================================== */
+
+.course-page {
+    width: 90%;
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding: 55px 0;
+}
+
+
+/* ==========================================
+   COURSE HERO
+========================================== */
+
+.course-hero {
+    padding: 35px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 30px;
+
+    background: #111827;
+
+    border: 1px solid #1f2937;
+
+    border-radius: 18px;
+}
+
+.course-hero-icon {
+    width: 90px;
+    height: 90px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    background: #1e293b;
+
+    color: #3b82f6;
+
+    font-size: 36px;
+}
+
+.course-level {
+    color: #4ade80;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+.course-hero h1 {
+    margin: 7px 0;
+
+    font-size: 34px;
+}
+
+.course-hero-content > p {
+    max-width: 700px;
+
+    color: #64748b;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+.course-stats {
+    display: flex;
+
+    gap: 25px;
+
+    margin-top: 18px;
+
+    color: #94a3b8;
+
+    font-size: 11px;
+}
+
+.course-stats i {
+    margin-right: 5px;
+
+    color: #3b82f6;
+}
+
+
+/* ==========================================
+   PROGRESS
+========================================== */
+
+.progress-card {
+    margin-top: 25px;
+
+    padding: 25px;
+
+    background: #111827;
+
+    border: 1px solid #1f2937;
+
+    border-radius: 15px;
+}
+
+.progress-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 15px;
+}
+
+.progress-header span {
+    color: #64748b;
+
+    font-size: 9px;
+    font-weight: 600;
+
+    letter-spacing: 1px;
+}
+
+.progress-header h2 {
+    margin-top: 4px;
+
+    font-size: 18px;
+}
+
+.progress-header > i {
+    color: #3b82f6;
+
+    font-size: 22px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 7px;
+
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    background: #1e293b;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+
+    background: #3b82f6;
+
+    border-radius: inherit;
+}
+
+.progress-card > p {
+    margin-top: 10px;
+
+    color: #64748b;
+
+    font-size: 11px;
+}
+
+
+/* ==========================================
+   CONTENT
+========================================== */
+
+.course-content {
+    margin-top: 45px;
+}
+
+.content-heading {
+    margin-bottom: 20px;
+
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.content-heading > div > span {
+    color: #3b82f6;
+
+    font-size: 9px;
+    font-weight: 600;
+
+    letter-spacing: 1px;
+}
+
+.content-heading h2 {
+    margin-top: 5px;
+
+    font-size: 23px;
+}
+
+.lesson-count {
+    color: #64748b;
+
+    font-size: 11px;
+}
+
+
+/* ==========================================
+   LESSONS
+========================================== */
+
+.lesson-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.lesson-card {
+    min-height: 95px;
+
+    padding: 18px 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    background: #111827;
+
+    border: 1px solid #1f2937;
+
+    border-radius: 12px;
+
+    transition: .25s;
+}
+
+.lesson-card.available:hover {
+    border-color: #334155;
+
+    transform: translateX(3px);
+}
+
+.lesson-number {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: #1e293b;
+
+    color: #64748b;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.lesson-info {
+    flex: 1;
+}
+
+.lesson-info > span {
+    color: #64748b;
+
+    font-size: 8px;
+    font-weight: 600;
+
+    letter-spacing: 1px;
+}
+
+.lesson-info h3 {
+    margin-top: 3px;
+
+    font-size: 14px;
+}
+
+.lesson-info p {
+    margin-top: 3px;
+
+    color: #64748b;
+
+    font-size: 10px;
+
+    line-height: 1.5;
+}
+
+.lesson-btn {
+    padding: 9px 14px;
+
+    flex-shrink: 0;
+
+    border-radius: 7px;
+
+    background: #1e293b;
+
+    color: #ffffff;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    transition: .25s;
+}
+
+.lesson-btn:hover {
+    background: #3b82f6;
+}
+
+.lesson-btn i {
+    margin-left: 5px;
+}
+
+
+/* ==========================================
+   LOCKED LESSONS
+========================================== */
+
+.lesson-card.locked {
+    opacity: .55;
+}
+
+.lesson-lock {
+    padding: 10px;
+
+    color: #475569;
+
+    font-size: 13px;
+}
+
+
+/* ==========================================
+   CTA
+========================================== */
+
+.course-cta {
+    margin-top: 40px;
+
+    padding: 25px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    background: #111827;
+
+    border: 1px solid #1f2937;
+
+    border-radius: 15px;
+}
+
+.course-cta h2 {
+    font-size: 18px;
+}
+
+.course-cta p {
+    margin-top: 5px;
+
+    color: #64748b;
+
+    font-size: 11px;
+}
+
+.start-course-btn {
+    padding: 12px 18px;
+
+    flex-shrink: 0;
+
+    border-radius: 8px;
+
+    background: #3b82f6;
+
+    color: #ffffff;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    transition: .25s;
+}
+
+.start-course-btn:hover {
+    background: #2563eb;
+}
+
+.start-course-btn i {
+    margin-left: 6px;
+}
+
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.course-footer {
+    padding: 25px;
+
+    border-top: 1px solid #1f2937;
+
+    color: #475569;
+
+    font-size: 10px;
+
+    text-align: center;
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 700px) {
+
+    .course-header {
+        padding: 15px 5%;
+
+        gap: 15px;
+    }
+
+    .course-logo {
+        order: -1;
+    }
+
+    .course-page {
+        width: 92%;
+
+        padding: 35px 0;
+    }
+
+    .course-hero {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        padding: 25px;
+    }
+
+    .course-hero h1 {
+        font-size: 29px;
+    }
+
+    .course-stats {
+        flex-wrap: wrap;
+
+        gap: 12px;
+    }
+
+    .lesson-card {
+        align-items: flex-start;
+    }
+
+    .lesson-btn {
+        align-self: center;
+    }
+
+    .course-cta {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .start-course-btn {
+        width: 100%;
+
+        text-align: center;
+    }
+
+}
+
+
+@media (max-width: 450px) {
+
+    .course-header {
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+    .course-logo {
+        width: 100%;
+    }
+
+    .lesson-card {
+        gap: 12px;
+    }
+
+    .lesson-number {
+        width: 35px;
+        height: 35px;
+
+        font-size: 10px;
+    }
+
+    .lesson-info p {
+        display: none;
+    }
+
+    .lesson-btn {
+        padding: 8px 10px;
+
+        font-size: 9px;
+    }
+
+}
