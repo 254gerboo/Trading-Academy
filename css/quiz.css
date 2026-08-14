@@ -1,0 +1,505 @@
+/* ==========================================
+   GERBOO TRADING ACADEMY
+   QUIZ PAGE
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0b1120;
+    color: #ffffff;
+}
+
+button,
+a {
+    font-family: inherit;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.quiz-header {
+    min-height: 72px;
+
+    padding: 0 5%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #111827;
+
+    border-bottom: 1px solid #1f2937;
+}
+
+.back-link,
+.dashboard-link {
+    color: #94a3b8;
+
+    font-size: 12px;
+
+    transition: .25s;
+}
+
+.back-link:hover,
+.dashboard-link:hover {
+    color: #3b82f6;
+}
+
+.back-link i,
+.dashboard-link i {
+    margin-right: 6px;
+}
+
+.quiz-logo {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.quiz-logo strong {
+    color: #3b82f6;
+    font-size: 20px;
+}
+
+.quiz-logo span {
+    color: #64748b;
+    font-size: 9px;
+}
+
+
+/* ==========================================
+   CONTAINER
+========================================== */
+
+.quiz-container {
+    width: 92%;
+    max-width: 850px;
+
+    margin: auto;
+
+    padding: 55px 0 70px;
+}
+
+
+/* ==========================================
+   HEADING
+========================================== */
+
+.quiz-heading {
+    text-align: center;
+
+    margin-bottom: 35px;
+}
+
+.quiz-heading > span {
+    color: #3b82f6;
+
+    font-size: 9px;
+    font-weight: 600;
+
+    letter-spacing: 1px;
+}
+
+.quiz-heading h1 {
+    margin: 8px 0;
+
+    font-size: 34px;
+}
+
+.quiz-heading p {
+    color: #64748b;
+
+    font-size: 12px;
+}
+
+
+/* ==========================================
+   PROGRESS
+========================================== */
+
+.quiz-progress {
+    margin-bottom: 20px;
+}
+
+.progress-info {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 8px;
+
+    color: #64748b;
+
+    font-size: 10px;
+}
+
+.progress-info strong,
+#progressPercent {
+    color: #ffffff;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+
+    overflow: hidden;
+
+    background: #1e293b;
+
+    border-radius: 10px;
+}
+
+.progress-fill {
+    width: 20%;
+    height: 100%;
+
+    background: #3b82f6;
+
+    transition: width .3s;
+}
+
+
+/* ==========================================
+   QUESTION CARD
+========================================== */
+
+.question-card,
+.result-card {
+    padding: 30px;
+
+    background: #111827;
+
+    border: 1px solid #1f2937;
+
+    border-radius: 15px;
+}
+
+.question-label {
+    color: #3b82f6;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+}
+
+.question-card h2 {
+    margin: 12px 0 25px;
+
+    font-size: 21px;
+
+    line-height: 1.5;
+}
+
+
+/* ==========================================
+   ANSWERS
+========================================== */
+
+.answers {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.answer {
+    width: 100%;
+
+    padding: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    border: 1px solid #1f2937;
+
+    border-radius: 9px;
+
+    background: #0f172a;
+
+    color: #cbd5e1;
+
+    text-align: left;
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.answer:hover {
+    border-color: #3b82f6;
+
+    background: #162033;
+}
+
+.answer > span {
+    width: 28px;
+    height: 28px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 6px;
+
+    background: #1e293b;
+
+    color: #94a3b8;
+
+    font-weight: 600;
+}
+
+
+/* ==========================================
+   FEEDBACK
+========================================== */
+
+.quiz-feedback {
+    min-height: 20px;
+
+    margin-top: 15px;
+
+    font-size: 11px;
+}
+
+
+/* ==========================================
+   NEXT BUTTON
+========================================== */
+
+.next-btn {
+    margin-top: 20px;
+
+    padding: 12px 18px;
+
+    float: right;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #3b82f6;
+
+    color: #ffffff;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.next-btn:hover:not(:disabled) {
+    background: #2563eb;
+}
+
+.next-btn:disabled {
+    opacity: .35;
+
+    cursor: not-allowed;
+}
+
+.next-btn i {
+    margin-left: 6px;
+}
+
+
+/* ==========================================
+   RESULT
+========================================== */
+
+.result-card {
+    display: none;
+
+    text-align: center;
+}
+
+.result-icon {
+    width: 65px;
+    height: 65px;
+
+    margin: 0 auto 15px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #1e293b;
+
+    color: #3b82f6;
+
+    font-size: 25px;
+}
+
+.result-card > span {
+    color: #3b82f6;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+}
+
+.result-card h2 {
+    margin-top: 8px;
+
+    font-size: 24px;
+}
+
+.score {
+    margin: 15px 0;
+
+    font-size: 40px;
+
+    font-weight: 700;
+}
+
+.result-card p {
+    color: #64748b;
+
+    font-size: 11px;
+}
+
+.result-actions {
+    margin-top: 25px;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+}
+
+.retry-btn,
+.lesson-btn {
+    padding: 11px 16px;
+
+    border-radius: 8px;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.retry-btn {
+    border: 1px solid #334155;
+
+    background: transparent;
+
+    color: #ffffff;
+}
+
+.lesson-btn {
+    background: #3b82f6;
+
+    color: #ffffff;
+}
+
+.retry-btn:hover {
+    border-color: #3b82f6;
+}
+
+.lesson-btn:hover {
+    background: #2563eb;
+}
+
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.quiz-footer {
+    padding: 25px;
+
+    border-top: 1px solid #1f2937;
+
+    color: #475569;
+
+    font-size: 10px;
+
+    text-align: center;
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 550px) {
+
+    .quiz-header {
+        flex-wrap: wrap;
+
+        gap: 15px;
+
+        padding: 15px 5%;
+    }
+
+    .quiz-logo {
+        width: 100%;
+
+        order: -1;
+    }
+
+    .quiz-container {
+        width: 92%;
+
+        padding-top: 35px;
+    }
+
+    .quiz-heading h1 {
+        font-size: 28px;
+    }
+
+    .question-card,
+    .result-card {
+        padding: 22px;
+    }
+
+    .question-card h2 {
+        font-size: 18px;
+    }
+
+    .result-actions {
+        flex-direction: column;
+    }
+
+    .retry-btn,
+    .lesson-btn {
+        width: 100%;
+
+        text-align: center;
+    }
+
+}
