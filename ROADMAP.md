@@ -5,10 +5,10 @@
 ### Website
 - [x] Landing page
 - [x] Responsive layout
-- [ ] Login page
-- [ ] Registration page
-- [ ] Student dashboard
-- [ ] Courses page
+- [x] Login page
+- [x] Registration page
+- [x] Student dashboard
+- [x] Courses page
 - [ ] Profile page
 
 ### Learning System
