@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Currency Pairs Quiz | Gerboo Trading Academy</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+    <link rel="stylesheet" href="css/quiz.css">
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header class="quiz-header">
+
+        <a href="lesson2.html" class="back-link">
+
+            <i class="fas fa-arrow-left"></i>
+
+            Back to Lesson
+
+        </a>
+
+
+        <div class="quiz-logo">
+
+            <strong>Gerboo</strong>
+
+            <span>Trading Academy</span>
+
+        </div>
+
+
+        <a href="dashboard.html" class="dashboard-link">
+
+            <i class="fas fa-home"></i>
+
+            Dashboard
+
+        </a>
+
+    </header>
+
+
+    <!-- QUIZ -->
+
+    <main class="quiz-container">
+
+        <div class="quiz-heading">
+
+            <span>FOREX BASICS • LESSON 02</span>
+
+            <h1>Currency Pairs Quiz</h1>
+
+            <p>
+                Test your understanding of currency pairs and
+                how currencies are quoted in Forex.
+            </p>
+
+        </div>
+
+
+        <!-- PROGRESS -->
+
+        <div class="quiz-progress">
+
+            <div class="progress-info">
+
+                <span>
+                    Question <strong id="questionNumber">1</strong> of 5
+                </span>
+
+                <span id="progressPercent">20%</span>
+
+            </div>
+
+
+            <div class="progress-bar">
+
+                <div class="progress-fill" id="progressFill"></div>
+
+            </div>
+
+        </div>
+
+
+        <!-- QUESTION -->
+
+        <section class="question-card">
+
+            <span class="question-label">
+
+                QUESTION <span id="questionCount">01</span>
+
+            </span>
+
+
+            <h2 id="question">
+                What is the first currency in a currency pair called?
+            </h2>
+
+
+            <div class="answers" id="answers">
+
+                <button class="answer" data-answer="A">
+
+                    <span>A</span>
+
+                    Quote currency
+
+                </button>
+
+
+                <button class="answer" data-answer="B">
+
+                    <span>B</span>
+
+                    Base currency
+
+                </button>
+
+
+                <button class="answer" data-answer="C">
+
+                    <span>C</span>
+
+                    Minor currency
+
+                </button>
+
+
+                <button class="answer" data-answer="D">
+
+                    <span>D</span>
+
+                    Exotic currency
+
+                </button>
+
+            </div>
+
+
+            <div class="quiz-feedback" id="feedback"></div>
+
+
+            <button class="next-btn" id="nextBtn" disabled>
+
+                Next Question
+
+                <i class="fas fa-arrow-right"></i>
+
+            </button>
+
+        </section>
+
+
+        <!-- RESULT -->
+
+        <section class="result-card" id="resultCard">
+
+            <div class="result-icon">
+
+                <i class="fas fa-trophy"></i>
+
+            </div>
+
+
+            <span>QUIZ COMPLETE</span>
+
+
+            <h2 id="resultTitle">
+                Great Job!
+            </h2>
+
+
+            <div class="score" id="score">
+                0/5
+            </div>
+
+
+            <p id="resultMessage">
+                Your results will appear here.
+            </p>
+
+
+            <div class="result-actions">
+
+                <button id="retryBtn" class="retry-btn">
+
+                    <i class="fas fa-rotate-right"></i>
+
+                    Try Again
+
+                </button>
+
+
+                <a href="lesson2.html" class="lesson-btn">
+
+                    Back to Lesson
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer class="quiz-footer">
+
+        © 2026 Gerboo Trading Academy. All Rights Reserved.
+
+    </footer>
+
+
+    <script src="js/quiz2.js"></script>
+
+</body>
+
+</html>
